@@ -1,10 +1,6 @@
 {
 	"folders": [
 		{
-			"name": "ESP8266_blinker",
-			"path": "../ESP8266_blinker"
-		},
-		{
 			"name": "ESP8266_AHT10",
 			"path": "."
 		}
