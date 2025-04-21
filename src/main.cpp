@@ -2,11 +2,24 @@
 #include <ESP8266mDNS.h>
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
+<<<<<<< HEAD
 #include <AHTxx.h>
 
 String prepareHtmlPage(void);
 
 AHTxx aht10(AHTXX_ADDRESS_X38, AHT1x_SENSOR);
+=======
+#include <AHT10.h>
+//#include <Adafruit_AHTX0.h>
+
+// over the air (OTA) via command line 
+// pio run -t upload --upload-port 192.168.178.180
+
+String prepareHtmlPage(void);
+
+//AHTxx aht10(AHTXX_ADDRESS_X38, AHT1x_SENSOR);
+AHT10 aht10(AHT10_ADDRESS_0X38, AHT10_SENSOR);
+>>>>>>> e64f544 (add platformio and smaller changes)
 
 #include "stassid.h"
 
@@ -27,10 +40,21 @@ void setup() {
   Serial.println(F("ATH10 OK"));
 
   
+<<<<<<< HEAD
   WiFi.hostname(F("ESP8266-AHT-1"));
 
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
+=======
+  WiFi.hostname(F("ESP8266-AHT-10"));
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  
+  Serial.print(F("ESP8266 MAC: "));
+  Serial.println(WiFi.macAddress());
+
+>>>>>>> e64f544 (add platformio and smaller changes)
   // while (WiFi.waitForConnectResult() != WL_CONNECTED) {
   //   Serial.println("Connection Failed! Rebooting...");
   //   delay(5000);
@@ -50,7 +74,10 @@ void setup() {
 
   // Port defaults to 8266
   ArduinoOTA.setPort(8266);
+<<<<<<< HEAD
 
+=======
+>>>>>>> e64f544 (add platformio and smaller changes)
   // Hostname defaults to esp8266-[ChipID]
   //ArduinoOTA.setHostname("myesp8266");
 
@@ -105,7 +132,11 @@ void loop() {
   
   if (client)
   {
+<<<<<<< HEAD
     Serial.println("\n[Client connected]");
+=======
+    Serial.println("\n[Client connected ...]");
+>>>>>>> e64f544 (add platformio and smaller changes)
     while (client.connected())
     {
       // read line by line what the client (web browser) is requesting
